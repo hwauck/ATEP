@@ -18,7 +18,6 @@ public class Assessment implements Serializable {
 	private Student owner;
 	private int classYear; 
 	
-	
 	public Assessment(AssessmentTemplate template, Student owner) {
 		name = template.getName(); 
 		classYear = template.getClassYear(); 

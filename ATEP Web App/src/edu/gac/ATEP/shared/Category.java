@@ -16,4 +16,8 @@ public class Category {
 		questions.add(q);
 		// consider other options for where to place question in list
 	}
+	
+	public ArrayList<Question> getQuestions(){
+		return questions;
+	}
 }

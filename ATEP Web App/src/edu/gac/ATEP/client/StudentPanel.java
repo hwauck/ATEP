@@ -10,6 +10,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Label;
 import edu.gac.ATEP.shared.Assessment;
 import edu.gac.ATEP.shared.Student;
+import edu.gac.ATEP.shared.Category;
+import edu.gac.ATEP.shared.Question;
 
 public class StudentPanel extends VerticalPanel{
 	
@@ -29,17 +31,30 @@ public class StudentPanel extends VerticalPanel{
 
 ///////////////////////////////Create a handler for the ViewAssessmentButton\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	class ViewAssessmentHandler implements ClickHandler{
+		private VerticalPanel populatedPanel = new VerticalPanel();
 		
 		//Fired when the user clicks on the ViewAssessmentButton.
 		public void onClick(ClickEvent event){
 			panel1.setVisible(false);
 			panel2.setVisible(true);
-			VerticalPanel populatedPanel = new VerticalPanel();
 		}
 
 		//Send the name selected from the student list to the server and wait for a response.
-		private void populatePanel() {
-			
+		private void populatePanel(Assessment assessmentToPopulate) {
+			//create getCategories
+			ArrayList<Category> cats = assessmentToPopulate.getCategories();
+			for (Category cat : cats){
+				VerticalPanel catPanel = new VerticalPanel();
+				populatedPanel.add(catPanel);
+				ArrayList<Question> Qs = cat.getQuestions();
+				for (Question q : Qs){
+					VerticalPanel questionPanel = new VerticalPanel();
+					HorizontalPanel scorePanel = new HorizontalPanel();
+
+					questionPanel.add(scorePanel);
+					catPanel.add(questionPanel);
+				}
+			}
 			
 		}
 	}
