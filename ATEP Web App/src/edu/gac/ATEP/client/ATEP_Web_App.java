@@ -123,8 +123,8 @@ public class ATEP_Web_App implements EntryPoint {
 		Label lblAssessmentList = new Label("Assessments");
 		lblAssessmentList.setWidth("240px");
 		
-		StackPanel assessmentListPanel = new StackPanel();
-		assessmentListPanel.setWidth("240px");
+//		StackPanel assessmentListPanel = new StackPanel();
+//		assessmentListPanel.setWidth("240px");
 		
 		assessmentInfoPanel = new VerticalPanel();
 		studentInfoPanels = new ArrayList<VerticalPanel>();
@@ -277,16 +277,13 @@ public class ATEP_Web_App implements EntryPoint {
 			ArrayList<Assessment> assessments = s.getMyAssessments();
 			for (Assessment a : assessments) {
 				System.out.println(a);
-				assessmentInfoPanel = assessmentInfoPanels.get(j);
 				HorizontalPanel assessmentViewPanel = new HorizontalPanel();
 				assessmentViewPanel.add(new Label(a.getName() + " -- Status: " + a.getStatus()));
 				Button viewButton = new Button("View " + a.getName());
 				assessmentViewPanel.add(viewButton);
 				ViewAssessmentHandler viewAssessment = new ViewAssessmentHandler();
 				viewButton.addClickHandler(viewAssessment);
-				studentInfoPanel.add(assessmentInfoPanel);
 				studentInfoPanel.add(assessmentViewPanel);
-				j++;
 			}
 			studentListPanel.add(studentInfoPanel, s.getName());
 		}
