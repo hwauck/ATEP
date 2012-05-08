@@ -26,7 +26,7 @@ public class Assessment implements Serializable {
 	private Student owner;
 	@Persistent
 	private int classYear; 
-	@Persistent
+	//@Persistent
 	private AssessmentTemplate baseTemplate;
 	
 	public Assessment(AssessmentTemplate template, Student owner) {
@@ -67,7 +67,18 @@ public class Assessment implements Serializable {
 	}
 	
 	public ArrayList<Category> getCategories() {
-		return baseTemplate.getCategories();
+		//if (baseTemplate == null) {
+			ArrayList<Category> cList = new ArrayList<Category>();
+			Question q1 = new Question("test");
+			Question q2 = new Question("test again");
+			ArrayList<Question> qList = new ArrayList<Question>();
+			qList.add(q1);
+			qList.add(q2);
+			Category bones = new Category("bones",qList);
+			cList.add(bones);
+			return cList;
+		//}
+		//return baseTemplate.getCategories();
 	}
 	
 	public String toString() {
