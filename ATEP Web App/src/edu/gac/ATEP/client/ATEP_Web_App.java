@@ -107,6 +107,7 @@ public class ATEP_Web_App implements EntryPoint {
 		// Use RootPanel.get() to get the entire body element
 		RootPanel rootPanel = RootPanel.get("applicationContainer");
 		rootPanel.add(mainPanel);
+		rootPanel.add(assessmentPanel);
 		
 		//Add rest of panel structure
 		Label lblSearchStudents = new Label("Search Students");

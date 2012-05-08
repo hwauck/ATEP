@@ -34,13 +34,17 @@ public class StudentPanel extends VerticalPanel{
 ///////////////////////////////Create a handler for the ViewAssessmentButton\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	class ViewAssessmentHandler implements ClickHandler{
 		private VerticalPanel populatedPanel = new VerticalPanel();
-		private Assessment a1;
+		private Assessment assessmentToView;
+		
+		public ViewAssessmentHandler(Assessment a) {
+			assessmentToView = a;
+		}
 		
 		//Fired when the user clicks on the ViewAssessmentButton.
 		public void onClick(ClickEvent event){
-			panel1.setVisible(false);
+			panel1.setVisible(false);			
+			populatePanel(assessmentToView);
 			panel2.setVisible(true);
-			populatePanel(a1);
 		}
 
 		//Send the name selected from the student list to the server and wait for a response.
@@ -83,18 +87,17 @@ public class StudentPanel extends VerticalPanel{
 		this.add(new Label("Year in program: " + stud.getClassYear()));
 		this.add(new Button("Delete this student"));
 		this.add(new Label("Current Assessments: "));
-
 		for (Assessment a : assessments){
 			HorizontalPanel assessmentViewPanel = new HorizontalPanel();
 			assessmentViewPanel.add(new Label(a.getName() + " -- Status: " + a.getStatus()));
 			AssessmentButton viewButton = new AssessmentButton("View " + a.getName(), a);
 			assessmentViewPanel.add(viewButton);
-			ViewAssessmentHandler viewAssessment = new ViewAssessmentHandler();
+			ViewAssessmentHandler viewAssessment = new ViewAssessmentHandler(a);
 			viewButton.addClickHandler(viewAssessment);
-			/*studentInfoPanel.add(assessmentInfoPanel);
-			studentInfoPanel.add(assessmentViewPanel);
-			j++;*/
+			this.add(assessmentViewPanel);
+			
 		}
+		
 	}
 }
 
