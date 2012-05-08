@@ -19,13 +19,14 @@ public class StudentPanel extends VerticalPanel{
 	private static Student stud;
 	private static VerticalPanel panel1;
 	private static VerticalPanel panel2;
-	ArrayList<Assessment> assessments = stud.getMyAssessments();
+	ArrayList<Assessment> assessments;
 	
 	public StudentPanel(Student stud, VerticalPanel panel1, VerticalPanel panel2){
 		super();
 		this.stud = stud;
 		this.panel1 = panel1;
 		this.panel2 = panel2;
+		assessments = stud.getMyAssessments();
 		initGUI();
 		
 	}
