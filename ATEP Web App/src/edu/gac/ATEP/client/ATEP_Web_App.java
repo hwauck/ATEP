@@ -81,7 +81,6 @@ public class ATEP_Web_App implements EntryPoint {
 		AssessmentTemplate aT = new AssessmentTemplate("Template 1", categories, 2);
 		harry.addAssessment(new Assessment(aT, harry));
 		mary.addAssessment(new Assessment(aT, mary));
-
 		
 		// Create main panel to hold the widgets together
 		final VerticalPanel mainPanel = new VerticalPanel();
@@ -267,7 +266,6 @@ public class ATEP_Web_App implements EntryPoint {
 		int j = 0;
 		VerticalPanel studentInfoPanel;
 		for(Student s : studentList){
-			System.out.println(s.getName());
 			//add student info to the student info panel for each student displayed
 			studentInfoPanel = new VerticalPanel();
 			studentInfoPanels.add(studentInfoPanel);
@@ -276,7 +274,6 @@ public class ATEP_Web_App implements EntryPoint {
 			studentInfoPanel.add(new Label("Current Assessments:"));
 			ArrayList<Assessment> assessments = s.getMyAssessments();
 			for (Assessment a : assessments) {
-				System.out.println(a);
 				HorizontalPanel assessmentViewPanel = new HorizontalPanel();
 				assessmentViewPanel.add(new Label(a.getName() + " -- Status: " + a.getStatus()));
 				Button viewButton = new Button("View " + a.getName());
@@ -295,7 +292,6 @@ public class ATEP_Web_App implements EntryPoint {
 		}
 		updatingLabel.setVisible(true);
 		failureLabel.setVisible(false);
-		System.out.println(nextID);
 		studentStore.getStudents(nextID,
 				new AsyncCallback<List<Student>>(){
 
