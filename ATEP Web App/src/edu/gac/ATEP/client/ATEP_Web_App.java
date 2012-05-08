@@ -200,7 +200,7 @@ public class ATEP_Web_App implements EntryPoint {
 //			VerticalPanel studentInfoPanel;
 			for(Student s : studentList){
 				StudentPanel newStudPanel = new StudentPanel(s, mainPanel, assessmentPanel);
-				studentListPanel.add(newStudPanel);
+				studentListPanel.add(newStudPanel, s.getName());
 			}
 		}
 	
@@ -232,7 +232,7 @@ public class ATEP_Web_App implements EntryPoint {
 //						updatingLabel.setVisible(false);
 //						for(Student s : studentList){
 //							StudentPanel newStudPanel = new StudentPanel(s, mainPanel, assessmentPanel);
-//							studentListPanel.add(newStudPanel);
+//							studentListPanel.add(newStudPanel, s.getName());
 //							}
 //						if(!studentList.isEmpty()){
 //							nextID = studentList.get(0).getID() + 1;
