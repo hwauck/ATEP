@@ -46,4 +46,8 @@ public class AssessmentTemplate implements Serializable {
 	
 	@SuppressWarnings("unused") 
 	private AssessmentTemplate(){}
+
+	public void setMyCategories(ArrayList<Category> cats) {
+		categories = cats;	
+	}
 }

@@ -20,7 +20,7 @@ public class StudentStoreImpl extends RemoteServiceServlet implements
 	//will this serial number need to be different to allow two separate stores?? 
 	private static final long serialVersionUID = 7367373321119740703L;
 
-	private static final PersistenceManagerFactory pmf =
+	public static final PersistenceManagerFactory pmf =
 			JDOHelper.getPersistenceManagerFactory("transactions-optional");
 
 	@Override

@@ -45,6 +45,15 @@ public class Category implements Serializable{
 		return name;
 	}
 	
+	public void setOwner(AssessmentTemplate aT) {
+		owner = aT;
+	}
+	
 	@SuppressWarnings("unused")
 	private Category(){}
+
+	public void setMyQuestions(ArrayList<Question> qs) {
+		questions = qs;
+		
+	}
 }
